@@ -1,10 +1,10 @@
 
 
-# practice3
+# undefined_title
 
 ## 소개
 
-**practice3**는 커플을 위한 모던하고 미니멀한 Flutter 앱입니다.  
+**undefined_title**는 커플을 위한 모던하고 미니멀한 Flutter 앱입니다.  
 Google Maps, Kakao Places, Gemini AI 추천 등 다양한 외부 API와 연동하여,  
 데이트 장소 기록, 리뷰/사진/추억 남기기, AI 기반 추천, 즐겨찾기, 카테고리별 검색,  
 실시간 위치 기반 추천 등 커플의 데이트 경험을 풍부하게 만들어줍니다.
@@ -40,7 +40,7 @@ Google Maps, Kakao Places, Gemini AI 추천 등 다양한 외부 API와 연동�
 1. **저장소 클론 및 패키지 설치**
    ```bash
    git clone <your-repo-url>
-   cd practice3
+   cd undefined_title
    flutter pub get
    ```
 
