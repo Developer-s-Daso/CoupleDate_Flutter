@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="practice3">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>practice3</title>
+  <link rel="manifest" href="manifest.json">
+  <!-- Google Maps API Key for google_maps_flutter (Optional: Only inject if API key is set) -->
+  <script>
+    // 환경변수에서 API 키를 읽어와 동적으로 Google Maps 스크립트를 삽입 (디버깅/Mock 모드 지원)
+    // 실제 배포 시에는 빌드 스크립트 또는 CI에서 대체하거나, 아래 코드를 참고하여 키가 없으면 삽입하지 않음
+    const apiKey = (window.env && window.env.GOOGLE_MAPS_API_KEY) || undefined;
+    if (apiKey && apiKey !== 'YOUR_GOOGLE_MAPS_API_KEY' && apiKey !== '') {
+      var script = document.createElement('script');
+      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey;
+      document.head.appendChild(script);
+    } else {
+      // 디버깅/Mock 모드: 지도 API 미삽입 (Flutter에서 자체적으로 Mock UI 처리)
+      console.warn('Google Maps API 키가 없으므로 지도 스크립트가 삽입되지 않습니다. 디버그/Mock 모드로 동작합니다.');
+    }
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
