@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/gallery_item.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class GalleryTile extends StatelessWidget {

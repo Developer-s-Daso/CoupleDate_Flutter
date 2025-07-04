@@ -96,7 +96,7 @@ class _PetTycoonScreenState extends State<PetTycoonScreen> {
                 'No pet found',
                 style: TextStyle(
                   fontSize: 18,
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             )

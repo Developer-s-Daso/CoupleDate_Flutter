@@ -3,6 +3,7 @@ import '../models/place.dart';
 import '../models/review.dart';
 import '../services/favorites_service.dart';
 import '../widgets/review_card.dart';
+import '../theme/app_theme.dart';
 
 class PlaceDetailScreen extends StatefulWidget {
   final Place place;
@@ -77,7 +78,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
         title: Text(widget.place.name),
         actions: [
           IconButton(
-            icon: Icon(_isFavorite ? Icons.favorite : Icons.favorite_border, color: Color(0xFF4FC3F7)),
+            icon: Icon(_isFavorite ? Icons.favorite : Icons.favorite_border, color: AppTheme.mint),
             onPressed: _toggleFavorite,
             tooltip: _isFavorite ? '즐겨찾기 해제' : '즐겨찾기 추가',
           ),
@@ -99,7 +100,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
             const SizedBox(height: 8),
             Expanded(
               child: _reviews.isEmpty
-                  ? const Text('아직 리뷰가 없습니다. 첫 리뷰를 남겨보세요!')
+                  ? Text('아직 리뷰가 없습니다. 첫 리뷰를 남겨보세요!')
                   : ListView.builder(
                       itemCount: _reviews.length,
                       itemBuilder: (context, idx) => ReviewCard(review: _reviews[idx]),
@@ -116,7 +117,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.send, color: Color(0xFF4FC3F7)),
+                  icon: Icon(Icons.send, color: AppTheme.mint),
                   onPressed: _addReview,
                 ),
               ],

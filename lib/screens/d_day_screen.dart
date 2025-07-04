@@ -87,12 +87,11 @@ class _DDayScreenState extends State<DDayScreen> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
-              primary: AppTheme.blue, // 파란색(상단/포커스)
-              onPrimary: Colors.white, // 상단 텍스트
-              surface: AppTheme.lightSkyBlue, // 배경
-              onSurface: AppTheme.blue, // 날짜 텍스트
-            ),
-            dialogBackgroundColor: AppTheme.lightMint, // 다이얼로그 배경
+              primary: AppTheme.blue,
+              onPrimary: Colors.white,
+              surface: AppTheme.lightSkyBlue,
+              onSurface: AppTheme.blue,
+            ), dialogTheme: DialogThemeData(backgroundColor: AppTheme.lightMint),
           ),
           child: child!,
         );
@@ -121,25 +120,25 @@ class _DDayScreenState extends State<DDayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.lightSkyBlue, // 파스텔 하늘
+      backgroundColor: AppTheme.lightSkyBlue,
       appBar: AppBar(
-        backgroundColor: AppTheme.paleBlue, // 연하늘
+        backgroundColor: AppTheme.paleBlue,
         title: Text(
           'D-Day',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: AppTheme.blue, // 블루
+            color: AppTheme.blue,
           ),
         ),
-        iconTheme: IconThemeData(color: AppTheme.blue), // 블루 // 맑은 민트블루
+        iconTheme: IconThemeData(color: AppTheme.blue),
         actions: [
           IconButton(
-            icon: Icon(Icons.cake, color: AppTheme.blue), // 블루 // 맑은 민트블루 0xFF7DDFF6
+            icon: Icon(Icons.cake, color: AppTheme.blue),
             tooltip: '처음 사귄 날짜 설정',
             onPressed: pickFirstDate,
           ),
           IconButton(
-            icon: Icon(Icons.refresh, color: AppTheme.blue), // 블루 // 맑은 하늘 0xFFA5C9FF
+            icon: Icon(Icons.refresh, color: AppTheme.blue),
             tooltip: 'D-Day 초기화',
             onPressed: resetDDays,
           ),
@@ -150,20 +149,20 @@ class _DDayScreenState extends State<DDayScreen> {
         children: [
           if (firstDate != null)
             Card(
-              color: AppTheme.cardWhite, // 화이트 카드
+              color: AppTheme.cardWhite,
               margin: const EdgeInsets.only(bottom: 16),
               child: ListTile(
-                leading: Icon(Icons.favorite, color: AppTheme.mint), // 맑은 민트블루
+                leading: Icon(Icons.favorite, color: AppTheme.mint),
                 title: Text(
                   '처음 사귄 날: ${firstDate!.year}.${firstDate!.month}.${firstDate!.day}',
                   style: TextStyle(
-                    color: AppTheme.blue, // 블루
+                    color: AppTheme.blue,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 subtitle: Text(
                   '오늘은 사귄 지 $daysSinceFirstDate일째!',
-                  style: TextStyle(color: AppTheme.blueText), // 파스텔 블루
+                  style: TextStyle(color: AppTheme.blueText),
                 ),
               ),
             ),
@@ -189,7 +188,7 @@ class DDayCard extends StatelessWidget {
     final dText = diff >= 0 ? 'D+$diff' : 'D$diff';
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      color: AppTheme.lightMint, // 파스텔 민트블루 배경
+      color: AppTheme.lightMint,
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -200,7 +199,7 @@ class DDayCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.blue, // 블루
+                color: AppTheme.blue,
               ),
             ),
             SizedBox(height: 8),
@@ -208,14 +207,14 @@ class DDayCard extends StatelessWidget {
               dText,
               style: TextStyle(
                 fontSize: 32,
-                color: AppTheme.mint, // 맑은 민트블루
+                color: AppTheme.mint,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 4),
             Text(
               '${dday.date.year}.${dday.date.month}.${dday.date.day}',
-              style: TextStyle(color: AppTheme.blueText), // 파스텔 블루
+              style: TextStyle(color: AppTheme.blueText),
             ),
           ],
         ),

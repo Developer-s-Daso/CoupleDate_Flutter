@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/diary_entry.dart';
+import '../theme/app_theme.dart';
 
 class CalendarWidget extends StatefulWidget {
   final List<DiaryEntry> entries;
@@ -46,7 +47,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final firstDay = DateTime(selectedYear, selectedMonth, 1);
     final lastDay = DateTime(selectedYear, selectedMonth + 1, 0);
     final daysInMonth = lastDay.day;
     final days = List.generate(daysInMonth, (i) => DateTime(selectedYear, selectedMonth, i + 1));
@@ -91,7 +91,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               child: Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: hasEntry ? Color(0xFFB2F1E7) : Colors.grey[200],
+                  color: hasEntry ? AppTheme.accentCoral.withAlpha((255 * 0.5).round()) : Colors.grey[200],
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(

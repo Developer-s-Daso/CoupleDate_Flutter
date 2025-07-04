@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 import '../widgets/bottom_nav_bar.dart';
 import '../widgets/home_card.dart';
@@ -46,42 +47,42 @@ class _HomeScreenState extends State<HomeScreen> {
             title: 'D-Day',
             subtitle: '우리의 기념일을 예쁘게',
             icon: Icons.cake,
-            color: Color(0xFFFFE082), // 밝은 옐로우
+            color: AppTheme.cardAccentColors[0],
             screen: DDayScreen(),
           ),
           HomeCard(
             title: '1일 1문',
             subtitle: '매일 서로에게 답하는 질문',
             icon: Icons.question_answer,
-            color: Color(0xFFFFB6B6), // 밝은 코랄핑크
+            color: AppTheme.cardAccentColors[1],
             screen: DailyQuestionScreen(),
           ),
           HomeCard(
             title: '커플 팻/인테리어',
             subtitle: '함께 키우는 러브팻, 방 꾸미기',
             icon: Icons.pets,
-            color: Color(0xFFA7FFEB), // 밝은 민트
+            color: AppTheme.cardAccentColors[2],
             screen: PetTycoonScreen(),
           ),
           HomeCard(
             title: '커플 갤러리',
             subtitle: '인생네컷, 추억 사진첩',
             icon: Icons.photo_library,
-            color: Color(0xFFB3E5FC), // 밝은 하늘색
+            color: AppTheme.cardAccentColors[3],
             screen: GalleryScreen(),
           ),
           HomeCard(
             title: 'AI 심리상담',
             subtitle: '고민/감정 챗봇',
             icon: Icons.chat_bubble,
-            color: Color(0xFFD1C4E9), // 밝은 라벤더
+            color: AppTheme.cardAccentColors[4],
             screen: AICounselorScreen(),
           ),
           HomeCard(
             title: '커플 다이어리',
             subtitle: '칼린더에 추억 기록',
             icon: Icons.calendar_month,
-            color: Color(0xFFFFF9C4), // 밝은 크림
+            color: AppTheme.cardAccentColors[5],
             screen: DiaryScreen(),
           ),
         ],

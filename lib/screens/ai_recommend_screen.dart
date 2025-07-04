@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/gemini_ai_service.dart';
+import '../theme/app_theme.dart';
 
 
 
@@ -44,18 +45,18 @@ class _AIRecommendScreenState extends State<AIRecommendScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Color(0xFFE6F7FF), // 연한 하늘색
+      backgroundColor: AppTheme.lightSkyBlue, // 연한 하늘색
       body: Stack(
         children: [
           // 상단 그라데이션 배경
           Container(
             height: 260,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFFB8EFFF), // 밝은 하늘색
-                  Color(0xFFB2F1E7), // 밝은 민트
-                  Color(0xFFB3E5FC), // 밝은 파스텔 블루
+                  AppTheme.paleBlue, // 밝은 하늘색
+                  AppTheme.lightMint, // 밝은 민트
+                  AppTheme.lightSkyBlue, // 밝은 파스텔 블루
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -71,7 +72,7 @@ class _AIRecommendScreenState extends State<AIRecommendScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.auto_awesome, color: Colors.white, size: 32),
+                    const Icon(Icons.auto_awesome, color: Colors.white, size: 32),
                     const SizedBox(width: 8),
                     Text(
                       'AI 데이트 추천',
@@ -103,7 +104,7 @@ class _AIRecommendScreenState extends State<AIRecommendScreen> {
                               controller: _locationController,
                               decoration: InputDecoration(
                                 labelText: '내 위치 (예: 강남역)',
-                                prefixIcon: const Icon(Icons.place, color: Color(0xFF4FC3F7)),
+                                prefixIcon: Icon(Icons.place, color: AppTheme.mint),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
@@ -153,18 +154,18 @@ class _AIRecommendScreenState extends State<AIRecommendScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  backgroundColor: const Color(0xFFBEE3F7), // 연하늘
-                                  foregroundColor: const Color(0xFF3A5A98), // 블루 텍스트
+                                  backgroundColor: AppTheme.paleBlue, // 연하늘
+                                  foregroundColor: AppTheme.blueText, // 블루 텍스트
                                   textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                                 ),
                                 onPressed: _loading ? null : _getRecommendation,
                                 child: _loading
-                                    ? const SizedBox(
+                                    ? SizedBox(
                                         width: 24,
                                         height: 24,
                                         child: CircularProgressIndicator(strokeWidth: 3, color: Colors.white),
                                       )
-                                    : const Text('AI 추천 받기'),
+                                    : Text('AI 추천 받기'),
                               ),
                             ),
                           ],
@@ -190,11 +191,11 @@ class _AIRecommendScreenState extends State<AIRecommendScreen> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.recommend, color: Color(0xFF4FC3F7)),
+                                Icon(Icons.recommend, color: AppTheme.mint),
                                 const SizedBox(width: 8),
                                 Text('AI 추천 결과',
                                     style: theme.textTheme.titleMedium?.copyWith(
-                                      color: Color(0xFF4FC3F7),
+                                      color: AppTheme.mint,
                                       fontWeight: FontWeight.bold,
                                     )),
                               ],
@@ -226,7 +227,14 @@ class _PrettyDropdown extends StatelessWidget {
   final String label;
   final IconData icon;
   final ValueChanged<String?> onChanged;
-  const _PrettyDropdown({required this.value, required this.items, required this.label, required this.icon, required this.onChanged});
+
+  const _PrettyDropdown({
+    required this.value,
+    required this.items,
+    required this.label,
+    required this.icon,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +245,7 @@ class _PrettyDropdown extends StatelessWidget {
                 value: e,
                 child: Row(
                   children: [
-                    Icon(icon, color: Color(0xFF4FC3F7), size: 20),
+                    Icon(icon, color: AppTheme.mint, size: 20),
                     const SizedBox(width: 8),
                     Text(e, style: const TextStyle(fontWeight: FontWeight.w500)),
                   ],
@@ -252,7 +260,7 @@ class _PrettyDropdown extends StatelessWidget {
         fillColor: Colors.grey[50],
         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       ),
-      icon: const Icon(Icons.expand_more, color: Color(0xFF4FC3F7)),
+      icon: Icon(Icons.expand_more, color: AppTheme.mint),
       dropdownColor: Colors.white,
     );
   }

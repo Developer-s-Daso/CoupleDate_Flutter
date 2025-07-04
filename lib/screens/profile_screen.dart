@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -15,9 +16,9 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 40,
-              backgroundColor: Color(0xFF4FC3F7),
+              backgroundColor: AppTheme.mint,
               child: Icon(Icons.person, size: 48, color: Colors.white),
             ),
             const SizedBox(height: 16),
@@ -26,12 +27,12 @@ class ProfileScreen extends StatelessWidget {
             const Text('이메일: example@email.com', style: TextStyle(color: Colors.grey)),
             const SizedBox(height: 24),
             ListTile(
-              leading: Icon(Icons.settings, color: Color(0xFF4FC3F7)),
+              leading: Icon(Icons.settings, color: AppTheme.mint),
               title: const Text('앱 설정'),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.logout, color: Color(0xFF4FC3F7)),
+              leading: Icon(Icons.logout, color: AppTheme.mint),
               title: const Text('로그아웃'),
               onTap: () {},
             ),
