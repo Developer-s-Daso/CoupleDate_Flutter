@@ -24,6 +24,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
   Future<void> _loadOrGenerate() async {
     setState(() => _loading = true);
     final loaded = await _service.loadTodayQuestion();
+    if (!mounted) return; // Check if the widget is still mounted
     if (loaded != null) {
       _controller.text = loaded.answer ?? '';
       setState(() {
@@ -33,12 +34,14 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
     } else {
       setState(() { _generating = true; });
       final text = await _service.generateTodayQuestion();
+      if (!mounted) return; // Check if the widget is still mounted
       final dateKey = DateTime.now();
       final q = DailyQuestion(
         text: text,
         dateKey: '${dateKey.year}-${dateKey.month.toString().padLeft(2, '0')}-${dateKey.day.toString().padLeft(2, '0')}',
       );
       await _service.saveTodayQuestion(q);
+      if (!mounted) return; // Check if the widget is still mounted
       setState(() {
         _todayQuestion = q;
         _loading = false;
@@ -51,6 +54,7 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
     if (_todayQuestion == null) return;
     final updated = _todayQuestion!.copyWith(answer: answer);
     await _service.saveTodayQuestion(updated);
+    if (!mounted) return; // Check if the widget is still mounted
     setState(() {
       _todayQuestion = updated;
     });
@@ -101,7 +105,8 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
                       ElevatedButton(
                         onPressed: () async {
                           await _saveAnswer(_controller.text);
-                          FocusScope.of(context).unfocus();
+                          if (!mounted) return;
+                          WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
                         },
                         child: const Text('답변 저장'),
                       ),
@@ -111,3 +116,4 @@ class _DailyQuestionScreenState extends State<DailyQuestionScreen> {
     );
   }
 }
+

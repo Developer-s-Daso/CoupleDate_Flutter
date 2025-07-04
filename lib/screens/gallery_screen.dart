@@ -9,7 +9,7 @@ import '../models/gallery_folder.dart';
 import '../theme/app_theme.dart';
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({Key? key}) : super(key: key);
+  const GalleryScreen({super.key});
 
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
@@ -39,7 +39,7 @@ class GalleryFolderTile extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.folder, size: 36, color: Colors.amber[700]),
+                  Icon(Icons.folder, size: 36, color: AppTheme.secondaryYellow),
                   SizedBox(height: 8),
                   Text(
                     folder.name,

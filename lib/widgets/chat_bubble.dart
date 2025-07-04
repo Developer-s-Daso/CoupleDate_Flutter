@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/chat_message.dart';
+import '../theme/app_theme.dart';
 
 class ChatBubble extends StatelessWidget {
   final ChatMessage message;
@@ -8,7 +9,7 @@ class ChatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final align = message.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start;
-    final color = message.isUser ? Color(0xFFB8EFFF) : Colors.grey[200];
+    final color = message.isUser ? AppTheme.paleBlue : Colors.grey[200];
     final textColor = message.isUser ? Colors.white : Colors.black87;
     return Column(
       crossAxisAlignment: align,

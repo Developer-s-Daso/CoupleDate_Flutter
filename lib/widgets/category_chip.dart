@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 class CategoryChip extends StatelessWidget {
   final String label;
@@ -14,7 +15,7 @@ class CategoryChip extends StatelessWidget {
         label: Text(label),
         selected: selected,
         onSelected: (_) => onTap(),
-        selectedColor: Color(0xFF4FC3F7),
+        selectedColor: AppTheme.mint,
         backgroundColor: Colors.grey[200],
         labelStyle: TextStyle(
           color: selected ? Colors.white : Colors.black,

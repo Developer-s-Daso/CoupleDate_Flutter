@@ -140,7 +140,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                   'No entries yet',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               )
@@ -160,7 +160,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     subtitle: Text(
                       entries[index].date.toString(),
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                        color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.6).round()),
                       ),
                     ),
                   );
